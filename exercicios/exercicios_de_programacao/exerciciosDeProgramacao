@@ -1,0 +1,58 @@
+
+const cumprimentar = nome => `Olá, ${nome}!`
+console.log(cumprimentar('Leonardo')) // Olá, Leonardo!
+console.log(cumprimentar('Maria')) // Olá, Maria!
+
+const converterIdadeEmAnosParaDias = anos => 365 * anos
+console.log(converterIdadeEmAnosParaDias(25)) // 9125
+console.log(converterIdadeEmAnosParaDias(70)) // 25550
+
+const calcularSalario = (horas, valorPorHora) => `Salário igual a R$ ${horas * valorPorHora}`
+console.log(calcularSalario(150, 40.5)) // Salário igual a R$ 6075
+
+const nomeDoMes = function(mes) {
+    switch(mes) {
+        case 1: return `janeiro`
+        case 2: return `fevereiro`
+        case 3: return `marco`
+        case 4: return `abril`
+        case 5: return `maio`
+        case 6: return `junho`
+        case 7: return `julho`
+        case 8: return `agosto`
+        case 9: return `setembro`
+        case 10: return `outubro`
+        case 11: return `novembro`
+        case 12: return `dezembro`
+        default: return 'nao existe um mes correspondente'
+    }
+}
+console.log(nomeDoMes(1)) // janeiro
+console.log(nomeDoMes(4)) // abril
+
+const maiorOuIgual = (a, b) => a >= b
+console.log(maiorOuIgual(0, 0)) // true
+console.log(maiorOuIgual(0, "0")) // true
+console.log(maiorOuIgual(5, 1)) // true
+
+const inverso = function(parametro) {
+    switch(typeof parametro){
+        case 'boolean': return (!parametro)
+        case 'number': return (parametro * -1)
+        default: return `booleano ou números esperado, mas o parâmetro é do tipo ${typeof parametro}`
+    }
+}
+console.log(inverso(true)) // false
+console.log(inverso("6")) // booleano ou números esperado, mas o parâmetro é do tipo string
+console.log(inverso(-2000)) // 2000
+console.log(inverso("programação")) // booleano ou números esperado, mas o parâmetro é do tipo string
+
+
+estaEntre = function(numero, minimo, maximo, inclusivo = false) {
+    inclusivo ? console.log(minimo <= numero && maximo >= numero) : console.log(minimo < numero && maximo > numero)
+}
+
+estaEntre(10, 50, 100) // false
+estaEntre(16, 100, 160) // false
+estaEntre(3, 3 , 150) // false
+estaEntre(3, 3, 150, true) // true

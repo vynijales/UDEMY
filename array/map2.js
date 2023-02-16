@@ -5,7 +5,7 @@ const carrinho = [
     '{ "nome": "Caneta", "preco": 7.50}', 
 ]
 
-// Retornar uma array apenas ocm os preços
+// Retornar uma array apenas com os preços
 const preco = e => JSON.parse(e)["preco"]
 console.log(carrinho.map(preco)) // [ 3.45, 13.9, 41.22, 7.5 ]
 

@@ -56,3 +56,51 @@ estaEntre(10, 50, 100) // false
 estaEntre(16, 100, 160) // false
 estaEntre(3, 3 , 150) // false
 estaEntre(3, 3, 150, true) // true
+
+const multiplicar1 = function(a, b) {
+    let total = 0
+    for (let i = 1; i <= b; i++) {
+        total += a
+    }
+    return total
+}
+
+console.log(multiplicar1(5, 5)) // 25
+console.log(multiplicar1(0, 7)) // 0
+
+const repetir = function(arg, numRepeticoes) {
+    lista = []
+    for (let i = 0; i < numRepeticoes; i++) {lista = lista.concat(arg)}
+    return lista}
+
+console.log(repetir("código", 2)) // [ 'código', 'código' ]
+console.log(repetir(7, 3)) // [ 7, 7, 7 ]
+
+const simboloMais = numRepeticoes => {
+    caracteres = ""
+    for (let i = 0; i< numRepeticoes; i++) {
+        caracteres += "+"
+    }
+    return caracteres
+}
+console.log(simboloMais(2)) // ++
+console.log(simboloMais(4)) // ++++
+
+const receberPrimeiroEUltimoElemento = function(array) {
+    return [].concat(array[0], array[array.length - 1])
+}
+console.log(receberPrimeiroEUltimoElemento([7, 14, "olá"])) // [ 7, 'olá' ]
+console.log(receberPrimeiroEUltimoElemento([-100, "aplicativo", 16])) // [ -100, 16 ]
+
+const removerPropriedade = function(obj, atributo) {
+    let newObj = Object.assign({}, obj) // Criando clone
+    delete newObj[atributo]
+    return newObj
+}
+console.log(removerPropriedade({a: 1, b: 2}, "a")) //b
+objeto = {nome: "Matheus", descricao: "123"}
+objeto2 = removerPropriedade(objeto, "descricao")
+console.log(Object.is(removerPropriedade(objeto, "descricao"), objeto)) // Retornará false se o objeto não for o mesmo
+objeto.teste = true
+console.log(objeto, objeto2) // De fato, uma cópia do objeto sem ocupar o mesmo endereço de memória
+

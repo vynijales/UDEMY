@@ -163,4 +163,68 @@ const despesasTotais = objeto => console.log(somarNumeros(objeto.map(getPreco)))
 despesasTotais([
     {nome: "Jornal online", categoria: "Informação", preco: 89.99},
     {nome: "Cinema", categoria: "Entreterimento", preco: 150}
-])
+]) // 239.99
+
+despesasTotais([
+    {nome: "Galaxy S20", categoria: "Eletrônicos", preco: 3599.99},
+    {nome: "Macbook Pro", categoria: "Entreterimento", preco: 30999.90}
+]) // 34599.89
+
+const calcularMedia = array => console.log(somarNumeros(array) / array.length)
+
+calcularMedia([0, 10]) // 5
+calcularMedia([1, 2, 3, 4, 5]) // 3
+
+const areaDoTriangulo = (b, h) => console.log(((b * h)/2).toFixed(2))
+
+areaDoTriangulo(10, 15) // 75.00
+areaDoTriangulo(7, 9) // 31.50
+areaDoTriangulo(9.25, 13.1) // 60.59
+
+const menorNumero = array => array.reduce((menor, atual) => atual < menor ? atual : menor, array[0])
+console.log(menorNumero([10, 5, 35, 65])) // 5
+console.log(menorNumero([5, -15, 50, 3])) // -15
+
+const funcaoDaSorte = numero => {
+    sorteado = Math.floor(Math.random() * 10 + 1)
+    numero == sorteado ? console.log(`Parabéns! O número foi o ${sorteado}`) : console.log(`Que pena! O número foi o ${sorteado}`)
+}
+
+funcaoDaSorte(10) // Que pena! O número foi o 9
+funcaoDaSorte(5) // Parabéns! O número foi o 5
+funcaoDaSorte(5) // Que pena! O número foi o 10
+
+const contarPalavras = string => console.log(string.split(' ').length)
+contarPalavras("Sou uma frase") // 3
+contarPalavras("Me divirto aprendendo a programar") // 5
+
+const contarCaractere = (caractere, string) => console.log(string.split('').reduce((total, letra) => letra == caractere ? total + 1 : total, 0))
+contarCaractere("r", "A sorte favorece os audazes") // 2
+contarCaractere("c", "Conhece-te a ti mesmo") // 3
+contarCaractere("o", "pneumoultramicroscopicossilicovulcanoconiótico") // 8
+
+const buscarPalavraSemelhantes = (palavra, arrayStrings) => arrayStrings.filter( elemento => elemento.includes(palavra)) // includes verifica se o palavra está contido no elemento
+console.log(buscarPalavraSemelhantes("pro", ["programação", "mobile", "profissional"])) // [ 'programação', 'profissional' ]
+console.log(buscarPalavraSemelhantes("python", ["javascript", "java", "c++"])) // []
+
+const removerVogais = palavra => palavra.split('').filter(letra => !"aeiouAEIOU".includes(letra)).join('') // includes verifica letra está em "aeiouAEIOU"
+console.log(removerVogais("Cod3r")) // Cd3r
+console.log(removerVogais("Fundamentos")) // Fndmnts
+
+const inverterChaveValor = function(objeto) {
+    let obj = {}
+    let chaves = Object.keys(objeto)
+    for (let i = 0; i < chaves.length; i++) {
+        obj[objeto[chaves[i]]] = chaves[i]
+    }
+    console.log(obj)
+}
+
+inverterChaveValor({ a: 1, b: 2, c: 3 }) // { '1': 'a', '2': 'b', '3': 'c' }
+
+
+const filtrarPorQuantidadeDeDigitos = (arrayNumeros, digitos) => console.log(arrayNumeros.filter( elemento => String(elemento).length == digitos))
+filtrarPorQuantidadeDeDigitos([38, 2, 365, 10, 125, 11], 2) // [ 38, 10, 11 ]
+filtrarPorQuantidadeDeDigitos([5, 9, 1, 125, 11], 1) // [ 5, 9, 1 ]
+
+const segundoMaior = array => {}

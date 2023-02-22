@@ -2,16 +2,25 @@ const porta = 3003 // porta 80 é a porta padrão quando você faz uma requisiç
 
 const express = require('express')
 const app = express()
+const bancoDeDados = require('./bancoDeDados')
 
 app.get('/produtos', (req, res, next) => { // http://localhost:3003/produtos
-    console.log('Middwares 1...')
+    res.send(bancoDeDados.getProdutos())
     next() // Sem o next(), não encaminharia para o get abaixo
 })
 
-app.get('/produtos', (req, res, next) => { // http://localhost:3003/produtos
-    res.send({ nome: 'Notebook', preco:123.45 }) // Converte para JSON
+app.get('/produtos/:id', (req, res, next) => { // http://localhost:3003/produtos
+    res.send(bancoDeDados.getProduto(req.params.id)) // Converte para JSON
 })
 
+
+app.post('/produtos', (req, res, next) => {
+    const produto = bancoDeDados.salvarProduto({
+        nome: req.body.name,
+        preco: req.body.preco
+    })
+    res.send(produto)
+})
 
 app.listen(porta, () => {
     console.log(`Servidor executando na porta ${porta}.`)

@@ -9,3 +9,6 @@ const aluno = 'Gui'
 const situacao = 'Aprovado'
 
 console.log(tag `${aluno} está ${situacao}`)
+// [ '', ' está ', '' ]
+// [ 'Gui', 'Aprovado' ]
+// Outra string

@@ -43,6 +43,6 @@ async function executarDeVerdade() {
     console.log(valor)
 }
 
-executar().then(console.log)
+// executar().then(console.log)
 
 executarDeVerdade()

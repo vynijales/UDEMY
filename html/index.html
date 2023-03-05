@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Exercícios HTML</h1>
+    </header>
+    <nav>
+        <a href wm-nav="exercicios/teste.html">00 - Teste</a> |
+        <a href wm-nav="exercicios/temp.html">TEMPP</a>
+    </nav>
+    <section id="conteudo"></section>
+    <footer>
+        <br>
+        Curso de Web Moderno
+    </footer>
+    <script>
+        document.querySelectorAll('[wm-nav]').forEach(link => { // todos os elementos com atributo wm-nav, para cada link
+            const conteudo = document.getElementById('conteudo')
+            
+            link.onclick = function(e) {
+                e.preventDefault() // intercepta a função padrão de ir até a outra página
+                fetch(link.getAttribute('wm-nav')) // fetch, baseado em promise, pega todos os elementos com atributos wm-nav
+                    .then(resp => resp.text()) // pega a resposta e chama função text() para retornar o texto
+                    .then(html => conteudo.innerHTML = html) // insere o html da outra página dentro da section conteudo
+            }
+        })
+    </script>
+</body>
+</html>

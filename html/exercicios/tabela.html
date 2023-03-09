@@ -1,0 +1,56 @@
+<table> <!-- Tag que define uma tabela -->
+    <caption>Produtos</caption> <!-- O que reprenta essa tabela -->
+    <thead> <!-- Cabeçalho da tabela -->
+        <tr> <!-- table row, linha -->
+            <th>Produto</th> <!-- table head -->
+            <th>Preço</th> <!-- table head -->
+            <th>Quantidade</th> <!-- table head -->
+            <th>Total</th> <!-- table head -->
+        </tr>
+    </thead>
+    <tbody> <!-- Table Body, onde estará os dados  -->
+        <tr> <!-- table row, linha -->
+            <td>iPad</td> <!-- table data -->
+            <td>3.289,00</td> <!-- table data -->
+            <td>5</td> <!-- table data -->
+            <td>16445,00</td> <!-- table data -->
+        </tr>
+        <tr> <!-- table row, linha -->
+            <td>Samsung S9</td> <!-- table data -->
+            <td>2649,00</td> <!-- table data -->
+            <td>8</td> <!-- table data -->
+            <td>21192,00</td> <!-- table data -->
+        </tr>
+    </tbody>
+    <tfoot> <!-- table foot, rodape -->
+        <tr> <!-- table row, linha -->
+            <td colspan="3">Total</td> <!-- table data, colspan seria a quantidade colunas que td irá ocupar -->
+            <td>37637,00</td> <!-- table data -->
+        </tr>
+    </tfoot>
+</table>
+
+<style>
+    table {
+        border-collapse: collapse;  /* Remove a borda */
+    }
+
+    th, td { /* para todo th e td */
+        padding: 10px; /* espaço entre os elementos */
+    }
+
+    thead tr {
+        border-bottom: solid 3px #444; /* Adiciona uma linha solida na parte inferior */
+    }
+
+    tbody tr:hover { /* Para todo tr:hover dentro de tdbody */
+        background-color: #dedede; /* Cor do plano de fundo */
+    }
+
+    tfoot {
+        background-color: #444; /* Cor do plano de fundo */
+        color: #fff; /* Cor da letra */
+        font-weight: bold; /* Negrito */
+    }
+
+</style>

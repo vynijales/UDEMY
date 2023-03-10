@@ -29,3 +29,23 @@
         width: 0%;
     }
 </style>
+
+<script>
+    function configurarVideo(id) {
+        const video = document.getElementById(id)
+        video.oncontextmenu = () => false // Removendo o menu que aparece ao apertar o botão esquerdo do mouse
+        
+        document.querySelector(`[wm-play=${id}]`).onclick = e => video.play() // atrtibuindo função play ao button play
+        document.querySelector(`[wm-pause=${id}]`).onclick = e => video.pause() // atribuindo função pause ao button pause
+    
+        setInterval(() => {
+            const percentual = (video.currentTime / video.duration) * 100
+            const valorDiv = document.querySelector(`[wm-progresso=${id}] > div`)
+            valorDiv.style.width = `${percentual}%`
+            valorDiv.innerHTML = `${percentual.toFixed(1)}%`
+
+        }, 500)
+    }
+
+    configurarVideo("meuVideo")
+</script>

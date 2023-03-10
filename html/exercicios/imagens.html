@@ -1,4 +1,4 @@
-<div wdm-slider>
+<div wm-slider>
     
     <p>
         <img src="http://files.cod3r.com.br/curso-web/imagem1.jpg"
@@ -41,6 +41,11 @@
 
 <style>
 
+    p {
+        position: absolute;
+        display: none;
+    }
+
     .circular {
         width: 513px;
         background-color: #444;
@@ -63,3 +68,48 @@
         background-size: 200%;
     }
 </style>
+
+<script>
+    function mover(elem, inicio, fim, passo, callback) {
+        const novoInicio = inicio - passo
+        if (novoInicio >= fim) {
+            elem.style.left = novoInicio + 'px'
+            setTimeout(()=> mover(elem, novoInicio, fim, passo, callback), 7)
+        } else {
+            callback()
+        }
+    }
+    
+    // const p = document.querySelector('[wm-slider] > p') // Primeira tag p, que encontrar
+    // p.style.display = 'block'
+    // mover(p, 1500, -523, 5, () => {
+    //     console.log("Terminou!!!")
+    // })
+
+    function slider() {
+        const elementos = document.querySelectorAll('[wm-slider] > p') // todas as tags p que possui essa propriedade // querySelectAll retorna uma Node list
+        const slides = Array.from(elementos) // Convertendo Node list para uma array
+        exibirSlide(slides, slides[0])
+    }
+
+    function exibirSlide(slides, slide) {
+        slide.style.display = 'block'
+
+        const inicio = innerWidth // largura da página
+        const fim = -slide.clientWidth // largura da área da tag p
+
+        slide.style.left = `${inicio}px`
+
+        mover(slide, inicio, fim, 5, () => {
+            slide.style.display = 'none'
+            exibirSlide(slides, getProximo(slides, slide))
+        })
+    }
+
+        function getProximo(lista, atual) {
+            const i = lista.indexOf(atual) + 1
+            return i < lista.length ? lista[i] : lista[0]
+    }
+
+    slider()
+</script>

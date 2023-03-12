@@ -1,12 +1,49 @@
 <!DOCTYPE html>
 <html>
 
+<!-- Tipos de seletores
+* (Todos)
+elemento (tags)
+.class (classe)
+#div (id)
+[atriv] (atributo)
+:Pseudo-Class (Pseudo-Classe)
+::Pseudo-Elements (Pseudo-Elementos)
+*Combinar seletores*
+div + p = Adjacent Sibling (Elementos irmãos adjacentes)
+div ~ p = General Sibling (Irmão de um mesmo elemento pai)
+div > p = Child (Elemento filho direto)
+div  p = Descendant (Descendente)
+div, p = Agrupa a mesma estilização css a diversos elementos separados por vírgula -->
+
+
 <head>
     <meta charset="UTF-8">
     <title>CSS Selectors</title>
     <link rel="stylesheet" href="css/tag.css">
     <style>
-        /* ... */
+        /* Seletores CSS */
+        /* * (todos os elementos) */
+        /* .tag (classe tag) */
+        /* #aprovados (id aprovados) */
+        /* #aninhado > div (elemento div que seja filho direto de #aninhado) */
+        /* #aninhado section (qualquer descendente do tipo section de #aninhado) */
+        /* p + ul (seletor de irmãos, um seguido do outro - seleciona o ul diretamente seguido de p)*/
+        /* p ~ ol (todo ol irmão de p) */
+        /* [feira] (seleciona todos os elementos com atributo) */
+        /* [feira = 'casa'] (seleciona todos os elementos com atributo feira e valor casa )*/
+        /* [feira ~= 'escritorio'] (todo valor que tiver escritorio, mesmo separados por espaco) */
+        /* [feira *= 'sa'] (para todo valor que tenha 'sa')*/
+        /* span:nth-child(2) (tag span que seja segundo filho de alguém) */
+        /* section > :nth-child(odd) (todos os elementos filhos diretos de span e que estejam em posições ímpares) */
+        /* section > :nth-child(even) (todos os elementos filhos diretos de span e que estejam em posições pares) */
+        /* section > :nth-child(even) label (para todas as labels que estejam em elementos de posição par) */
+        /* section > span:nth-of-type(2) (seleciona o filho direto de section do tipo span) */
+
+        section > span:nth-of-type(2) label {
+            color:#ff0;
+            background-color: #f77;
+        }
     </style>
 </head>
 

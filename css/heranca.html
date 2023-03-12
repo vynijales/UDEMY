@@ -6,6 +6,18 @@
     <title>Herança</title>
     <style>
         /* ... */
+        body {
+            font-family: monospace; /* font-family é herdada por padrão */
+            font-size: 40px; /* font-size é herdada por padrão */
+            border: solid 3px red; /* border não é herdado por padrão */
+            padding: 50px; /* padding não é herdada por padrão */
+        }
+
+        div {
+            border: inherit;
+            padding: inherit;
+        }
+
     </style>
 </head>
 

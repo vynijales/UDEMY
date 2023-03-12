@@ -6,11 +6,46 @@
     <title>Especificidade CSS</title>
     <style>
         /* https://specificity.keegan.st/ */
+        /* 
+            1. Inline
+            2. ID
+            3. Atributo, Classe, Pseudo-Classe
+            4. Elemento, Pseudo-Elementto  
+        */
+
+        body { /* Especificidade 1 */
+            font-size: 40px;
+        }
+
+        div { /* Especificidade 1 */
+            background-color: #00b;
+            color: #fff;
+        }
+
+        div[wm-cor] { /* Especificidade 11 */
+            background-color: darkorange;
+        }
+
+        div.estilo { /* Especificidade 11 */
+            background-color: green;
+        }
+
+        /* o hover não funcionaria no div[wm-cor], se tivesse sido declarado antes */
+        div:hover { /* Especificidade 11 */
+            background-color: purple;
+        }
+
+        #unico1, #unico2 { /* Especificidade 100 */
+            background-color: black;
+        }
+
+
+
     </style>
 </head>
 
 <body>
-    <div id="unico1" class="estilo">
+    <div id="unico1" class="estilo" style="background-color: red;" >  <!-- Tem prioridade sobre as especificades -->
         #unico1 vs .estilo vs inline
     </div>
     <div id="unico2" class="estilo">#unico2 vs .estilo</div>

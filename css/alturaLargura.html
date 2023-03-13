@@ -5,9 +5,16 @@
     <meta charset="UTF-8">
     <title>Altura e Largura</title>
     <style>
+        html {
+            height: 100%;
+            /* Por padrão a tag body tem a altura do body */
+        }
+
         body {
             font-size: 40px;
             background-color: coral;
+            height: 100%;
+            /* Por padrão a tag body tem a altura de seus elementos, sendo limitado por seu parent html*/
         }
 
         div {
@@ -17,12 +24,23 @@
         span {
             background-color: dodgerblue;
         }
+
+        /* span é display inline, desconsidera as propriedades width e height*/
+
+        span, div {
+            width: 50%;
+            height: 250px;
+            height: 50%;
+            display: inline-block;
+            /* Só funciona pois as tags html e body estão com altura 100% */
+            /* */
+        }
+
     </style>
 </head>
 
 <body>
-    <div>Título</div>
-    <span>Subtítulo</span>
+    <div>Título</div><!-- Se houver espaço qualquer entre essas tags, haverá um comportamento estranho! --><span>Subtítulo</span>
 </body>
 
 </html>

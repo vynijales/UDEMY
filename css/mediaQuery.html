@@ -12,6 +12,23 @@
             border: solid 5px;
             display: none;
         }
+
+        /* Atua como um filtro */
+        @media (max-width: 600px) { /* Só irá exibir, se a largura for 600px */
+            .muito-pequeno { display: block;}
+        }
+
+        /* portrait (retrato) landscape (paisagem) */
+        @media (max-width: 1000px), (orientation: portrait) {/* Só irá exibir, se a largura for 1000px OU se tiver a orientação retrato */
+            .pequeno-retrato { display: block;}
+        }
+
+        @media (min-width: 500px) and (max-width: 1000px) {
+            .intervalo {
+                display: block;
+            }
+        }
+
     </style>
 </head>
 <body>

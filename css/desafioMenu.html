@@ -157,11 +157,11 @@
     <script>
         window.onhashchange = function(e) {
             // Pegar a segunda parte da url dividida pelo hashtag (#)
-            const oldUrl = e.oldUrl.split('#')[1]
-            const newUrl = e.newUrl.split('#')[1]
-            console.log(oldUrl, newUrl)
-            const oldMenu = document.querySelector(`.menu a[href="${oldUrl}"]`)
-            const newMenu = document.querySelector(`.menu a[href="${newUrl}"]`)
+            const oldURL = e.oldURL.split('#')[1]
+            const newURL = e.newURL.split('#')[1]
+            console.log(oldURL, newURL)
+            const oldMenu = document.querySelector(`.menu a[href="#${oldURL}"]`)
+            const newMenu = document.querySelector(`.menu a[href="#${newURL}"]`)
             oldMenu && oldMenu.classList.remove('selected')
             newMenu && newMenu.classList.add('selected')
         }

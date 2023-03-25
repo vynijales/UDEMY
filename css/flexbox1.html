@@ -7,6 +7,46 @@
     <link rel="stylesheet" href="css/tag.css">
     <style>
         /* ... */
+        .big {
+            font-size: 1.5em;
+        }
+
+        .flex-container {
+            display: flex;
+            flex-direction: column; /* Organiza no eixo da coluna */
+            flex-direction: column-reverse; /* Main axis column, itens organizados na ordem reversa */
+            flex-direction: row-reverse;/* Main axis row, itens organizados na ordem reversa */
+            flex-direction: row; /* Padrão */ /* Organiza no eixo da linha */
+            width: 50%; /* Nesse caso, resultou em overflow */
+            flex-wrap: wrap; /* Quebra de linha */
+            flex-wrap: wrap-reverse; /* Quebra de linha, porém na orientação reversa*/
+            flex-flow: row wrap; /* Quebra de linha, na orientação de linha*/
+            height: 200px;
+            flex-flow: column-reverse wrap; /* Quebra de linha, tendo como main axis column e com orientação invertida */
+            flex-flow: row wrap; /* Quebra de linha, main axis */
+
+            justify-content: flex-start; /* Justificar em relação ao inicio do axis*/
+            justify-content: flex-end; /* Justificar em relação ao fim do axis */
+            justify-content: center; /* Justificar em relação ao centro do axis */
+            justify-content: space-around; /* Espaço em volta dos elementos, de forma que ocupem a linha de forma uniforme  */
+            flex-direction: row-reverse;
+            justify-content: space-between; /* Espaço entre os elementos */
+            
+            /* Cross Axis */
+            height: 400px;
+            align-items: stretch; /* Padrão */ /* Estica */
+            align-items: baseline; /* Alinhar pela linha de base */
+            align-items: flex-start; /* Alinha pelo início do flex item */
+            align-items: flex-end; /* Alinha pelo fim do flex item */
+            align-items: center;
+
+            /* mais de uma linha */
+            align-content: flex-start; /* Linhas organizadas no inicio do container */
+            align-content: flex-end; /* Linhas organizadas no fim do container */
+            align-content:  center; /* Linhas organizadas no início do container */
+            align-content: space-around; /* Espaços ao redor das linhas */
+            align-content: space-between; /* Espaço entre as linhas */
+        }
     </style>
 </head>
 

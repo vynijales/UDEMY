@@ -7,6 +7,48 @@
     <link rel="stylesheet" href="css/tag.css">
     <style>
         /* ... */
+        .flex-container {
+            display: flex;
+            height: 300px;
+            width: 600px;
+        }
+
+        .flex-container div:nth-child(3) {
+            background-color: indianred;
+            /* Ordem 0 é o padrão, se aumentar a ordem eles serão exbidos depois */
+            order: 1;
+            /* Ordem 0 é o padrão */
+            order: 0;
+            /* Ordem 0 é o padrão, se diminuir a ordem eles serão exbidos antes */
+            order: -1;
+            align-self: center;
+            align-self: flex-end;
+            align-self: flex-start;
+            align-self: stretch; /* Padrão */
+        }
+        
+        .flex-container div {
+            margin: 0;
+            width: 100px;
+            flex-grow: 0; /* Padrão */
+            /* flex-grow aumenta o tamanho dos itens, baseando-se no espaço restante do container */
+            flex-grow: 1;
+        }
+
+        .flex-container div:nth-child(1) {
+            flex-grow: 2;
+        }
+
+        .flex-container {
+            width: 300px;
+            /* De forma análoga ao flex-grow, flex-shrink encolhe */
+            flex-shrink: 1;
+        }
+
+        .flex-container div:nth-child(1) {
+            /* Peso maior na hora de encolher */
+            flex-shrink: 5;
+        }
     </style>
 </head>
 

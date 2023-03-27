@@ -22,6 +22,59 @@
             border: solid 5px dodgerblue;
             background: #fff;
         }
+
+        body {
+            display: grid;
+            /* duas colunas */
+            grid-template-columns: 50% 50%;
+            /* doze colunas */
+            grid-template-columns: repeat(4, 8.33% 8.33% 8.33%);
+            /* quatro colunas */
+            grid-template-columns: repeat(4, 8.33%);
+            /* doze colunas */
+            grid-template-columns: repeat(12, 8.33%);
+            /* É possível concatenar */
+            grid-template-columns: repeat(11, 100px) 100px;
+            /* minmax(100px, 300px) */
+            /* primeira coluna terá 200px, a segunda terá 20% e a terceira terá um fragmento, nesse caso o restante da div */
+            grid-template-columns: 200px 20% 1fr;
+            /* 3 fragmentos, 6 fragmentos, 3 fragmentos = 12 total */
+            grid-template-columns: 3fr 6fr 3fr;
+            /* Percentuais para as linhas */
+            grid-template-rows: 50% 25% 12.5% 12.5%;
+            /* a primeira terá 100px, a segunda terá o maior fragmento possível e o restante ficará com o que sobrou, dividindo de forma igualitária*/
+            grid-template-rows: 100px 1fr;
+            /* a primeira terá 100px, as demais serão organizadas de forma automática */
+            grid-template-rows: 100px auto;
+        }
+
+        .d8 {
+            background-color: aqua;
+            /* Basicamente columnspan */
+            grid-column-start: 2;
+            grid-column-end: 4;
+            /* Cresça 2 */
+            grid-column-end: span 2;
+            /* Da mesma forma pode ser feito com a linha */
+            grid-row-start: 3;
+            grid-row-end: 5;
+            grid-row-end: span 2;
+        }
+
+        .d10,
+        .d11 {
+            /* podem se sobrepor */
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 5;
+            grid-row-end: span 1;
+            
+        }
+
+        .d10{
+            /* Quanto maior, mais preferência terá, caso haja sobreposição */
+            z-index: 10;
+        }
     </style>
 </head>
 

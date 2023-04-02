@@ -9,8 +9,34 @@
     <div id="primeiro">#primeiro</div>
     <div>Segundo</div>
     <div class="terceiro ultimo"><span wb-attrib>.terceiro .ultimo</span></div>
-    <script>              
-        // ...
+    <script>
+        // querySelector espera um seletor CSS, podendo ser por id (#), classe (.), atributo [atrib] ...         
+        document.querySelector('#primeiro').classList.add('destaque')
+
+        // Criando duas arrow functions para selecionar e deselecionar seletores
+        const selecionar = selector => document.querySelectorAll(selector).forEach(e => e.classList.add('destaque'))
+        const deselecionar = selector => document.querySelectorAll(selector).forEach(e => e.classList.remove('destaque'))
+
+        selecionar('div')
+        
+        deselecionar('*')
+        selecionar('.terceiro.ultimo')
+        
+
+        deselecionar('*')
+        // :not() Pseudo classe, Seleciona tudo que não tiver o id primeiro
+        selecionar(':not(#primeiro)')
+
+        deselecionar('*')
+        // :nth-child() Pseudo classe, Seleciona todos os primeiros filhos
+        selecionar(':nth-child(1)')
+
+        deselecionar('*')
+        // elemento:nth-of-type(1) Pseudo classe, Seleciona o primeiro elemento do tipo div
+        selecionar('div:nth-of-type(1)')
+
+        deselecionar('*')
+        selecionar('[wb-attrib]')
     </script>
 </body>
 </html>

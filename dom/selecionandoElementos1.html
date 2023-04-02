@@ -9,8 +9,25 @@
     <div id="primeiro">#primeiro</div>
     <div>Segundo</div>
     <div class="terceiro ultimo">.terceiro .ultimo</div>
-    <script>              
-        // ...
+    <script>
+        // Acrescenta a classe "destaque" à um elemento com id "primeiro"
+        document.getElementById('primeiro').classList.add('destaque')
+        // Todos os elementos da tag div, como html collectiton
+        const divs = document.getElementsByTagName('div')
+        // Transformando em array e removendo a classe "destaque"
+        Array.from(divs).forEach(e => e.classList.remove('destaque'))
+
+        // Operador spread, para espalhar os elementos dentro da array
+        const divsArray = [...divs]
+        // Adicionará a classe "destaque" para todos os elementos da lista
+        divsArray.forEach(e=> e.classList.add('destaque'))
+
+        // Pegando todos os elementos que possuem a tag "ultimo" e removendo a classe "destaque" deles
+        const ultimosElementtos = document.getElementsByClassName('ultimo')
+        for(let e of ultimosElementtos) {
+            e.classList.remove('destaque')
+        }
+
     </script>
 </body>
 </html>

@@ -23,7 +23,9 @@
 <body class="conteudo exercicio">
     <h1>Formulário</h1>
     <form name="pesquisa" action="http://www.google.com.br/search">
+        <!-- q de query -->
         <input type="text" name="q" placeholder="Digite o termo...">
+        <!-- hl de host language -->
         <select name="hl">
             <option value="pt-br">Português (Brasil)</option>
             <option value="en-us">Inglês (Americano)</option>
@@ -31,7 +33,22 @@
         <button>Pesquisar</button>
     </form>
     <script>
-        // ...
+        // Selecionar todos os forms
+        console.log(document.forms)
+        // Seleciona o primeiro form
+        console.log(document.forms[0])
+        // Retorna um NodeList com o elemento com nome pesquisa
+        console.log(document.getElementsByName('pesquisa'))
+        // Retorna o formulário pesquisa
+        console.log(document.pesquisa)
+        // Retorna o input com name 'q'
+        console.log(document.pesquisa.q)
+        // Altera o valor do campo q
+        document.pesquisa.q.value = 'Linux Brasil'
+        // Altera o valor do campo hl
+        document.pesquisa.hl.value = 'en-us'
+        // Index da opção selecionada do select hl
+        console.log(document.pesquisa.hl.selectedIndex)
     </script>
 </body>
 

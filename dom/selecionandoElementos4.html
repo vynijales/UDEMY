@@ -22,7 +22,44 @@
         <p>Fim</p>
     </div>
     <script>
-        // ...
+        // Se fosse arrow function o this apontaria para o window
+        function log() {
+            console.log(this)
+        }
+
+        // Acrescentando a função log a todas as classes abaixo através do prototype
+        HTMLCollection.prototype.log = log
+        HTMLElement.prototype.log = log
+        NodeList.prototype.log = log
+        Node.prototype.log = log
+        
+        // DOM é um sistema de árvore, podendo subir ou descer níveis
+        // Dependendo da especificidade do querySelector, é possível acessar ramos específicos da árvore
+        const lista = document.querySelector('div ul')
+        // parentNode sobe um nível da árvore, Nesse caso será retornado a div que é o parent de ul
+        lista.parentNode.log() // <div>...</div> (NodeElement)
+        // childNodes, a lista de nós da lista, nesse caso está sendo retornado text além do li, pois há 'espaços' entre eles
+        lista.childNodes.log() // [text, li, text, li, text, li, text] (NodeList)
+
+        // Primeiro elemento da lista
+        const primeiro = lista.firstChild
+        primeiro.log() // #text
+        primeiro.nextSibling.log() // <li>Pedro</li>
+
+        // Último elemento da lista
+        const ultimo = lista.lastChild
+        ultimo.previousSibling.log() // <li>Bia</li>
+
+        lista.children.log() // [li, li, li] (HTMLCollection)
+        lista.firstElementChild.log() // <li>Pedro</li> (Retorna o elemento html, uma abordagem mais interessante)
+        lista.lastElementChild.log() // <li>Bia</li>
+        // Selecionando o elemento anterior ao pai
+        lista.parentNode.previousElementSibling.log() // <div>...</div>
+        // Selecionando o elemento seguinte ao pai
+        lista.parentNode.nextElementSibling.log() // <div>...</div>
+
+        document.querySelectorAll('div ul li').log() // [li, li, li] (NodeList)
+
     </script>
 </body>
 

@@ -15,7 +15,50 @@
         <img src='http://files.cod3r.com.br/curso-web/logo-estreita.png' alt='logo'>
     </div>
     <script>
-        // ...
+        const img = document.querySelector('img')
+        // Selecionando atributo 'src' da tag img através do getAttribute
+        console.log('getAttribute', img.getAttribute('src')) // getAttribute http://files.cod3r.com.br/curso-web/logo-estreita.png 
+        // Selecionando atributo 'src' da tag img, através da estrutura DOM
+        console.log('src', img.src) // src http://files.cod3r.com.br/curso-web/logo-estreita.png
+        // Selecionando atributo através da notação de colchetes, pois é um atributo de um objeto
+        console.log('["src"]', img['src']) // ["src"] http://files.cod3r.com.br/curso-web/logo-estreita.png
+        // Consultando outro atributo
+        console.log('alt', img.alt) // alt logo
+
+        // Node Types
+        // Type	/ Description	/ Children
+        // 1	Element	Represents an element	Element, Text, Comment, ProcessingInstruction, CDATASection, EntityReference
+        // 2	Attr	Represents an attribute	Text, EntityReference
+        // 3	Text	Represents textual content in an element or attribute	None
+        // 4	CDATASection	Represents a CDATA section in a document (text that will NOT be parsed by a parser)	None
+        // 5	EntityReference	Represents an entity reference	Element, ProcessingInstruction, Comment, Text, CDATASection, EntityReference
+        // 6	Entity	Represents an entity	Element, ProcessingInstruction, Comment, Text, CDATASection, EntityReference
+        // 7	ProcessingInstruction	Represents a processing instruction	None
+        // 8	Comment	Represents a comment	None
+        // 9	Document	Represents the entire document (the root-node of the DOM tree)	Element, ProcessingInstruction, Comment, DocumentType
+        // 10	DocumentType	Provides an interface to the entities defined for the document	None
+        // 11	DocumentFragment	Represents a "lightweight" Document object, which can hold a portion of a document	Element, ProcessingInstruction, Comment, Text, CDATASection, EntityReference
+        // 12	Notation	Represents a notation declared in the DTD	None
+
+        console.log('Elemento "img"...............')
+        console.log('NodeType', img.nodeType) // NodeType 1
+        console.log('NodeName', img.nodeName) // NodeType IMG
+
+        const src = img.getAttributeNode('src')
+        console.log('Artibuto "src"...............')
+        console.log('NodeType', src.nodeType) // NodeType 2
+        console.log('NodeName', src.nodeName) // NodeType src
+        console.log('NodeValue', src.nodeValue) // NodeType src http://files.cod3r.com.br/curso-web/logo-estreita.png
+
+        const link = document.querySelector('a')
+        console.log('Elemento "a"...............')
+        console.log('href', link.href) // href https://www.cod3r.com.br/
+        console.log('firstChild.nodeType', link.firstChild.nodeType) // firstChild.nodeType 3
+        // Alterando valor do texto dentro da tag a
+        link.firstChild.nodeValue = 'Novo texto'        
+    
+        // Alterando valor dentro da tag usando .innerHTML
+        link.innerHTML = 'Novo texto 2'
     </script>
 </body>
 

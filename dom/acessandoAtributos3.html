@@ -16,7 +16,16 @@
         </ul>
     </div>
     <script>
-        // ...
+        const lista = document.querySelector('#compras')
+        
+        // .attributes permite somente leitura da estrutura DOM
+        console.log(lista.attributes) // NamedNodeMap {0: id, 1: destino, 2: data-urgencia, id: id, destino: destino, data-urgencia: data-urgencia, length: 3}
+        console.log(lista.attributes[0]) // id="compras"
+        console.log(lista.attributes.id) // id="compras"
+        console.log(lista.attributes[1]) // destino="escritorio"
+        console.log(lista.attributes.destino) // destino="escritorio"
+        console.log(lista.attributes[2]) // data-urgencia="5"
+        console.log(lista.attributes['data-urgencia']) // data-urgencia="5"
     </script>
 </body>
 

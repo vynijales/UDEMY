@@ -12,7 +12,34 @@
         Classes
     </div>
     <script>
-        // ...
+        const div = document.querySelector('div')
+        const classes = div.classList
+        classes.add('destaque')
+        classes.remove('destaque')
+        classes.toggle('destaque')
+        console.log(classes.contains('destaque')) // true
+        console.log(classes.length) // 1
+        classes.toggle('destaque')
+        console.log(classes.length) // 0
+
+        classes.add('destaque1')
+        classes.add('destaque2')
+        console.log(classes.length) // 2
+
+        for (let c of classes) {
+            console.log(c)
+        }
+        //destaque1
+        //destaque2
+
+        classes.forEach(c => console.log(c))
+        //destaque1
+        //destaque2
+
+        // Transformando DOMtokenlist em array
+        const array1 = Array.from(classes)
+        const array2 = [...classes]
+
     </script>
 </body>
 

@@ -10,6 +10,25 @@
 <body class="conteudo exercicio">
     <div>Elemento</div>
     <script>
-        // ...
+        const item = document.querySelector('div')
+        // Posição absoluta para trabalharmos com top e left
+        item.style.position = 'absolute'
+        // Desabilita a seleção do texto
+        item.style['user-select'] = 'none'
+        
+        item.onmousemove = e => {
+            // e.target é a div que disparou o evento
+            const item = e.target
+            // O evento 'move', cursor altera para mover
+            item.style.cursor = 'move'
+            // Se houver clicado vai estar diferente de 0
+            if (e.buttons) {
+                // A posição absoluta Y será referente ao mouse - metade do elemento
+                item.style.top = `${e.clientY - (item.clientHeight / 2)}px`
+                // A posição absoluta X será referente ao mouse - metade do elemento
+                item.style.left = `${e.clientX - (item.clientWidth / 2)}px`
+            }
+        }
+        //comand d seleciona mais de um texto igual
     </script>
 </body>

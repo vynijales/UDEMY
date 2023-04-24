@@ -45,7 +45,34 @@
     </div>
     <div class="direita" wm-dropzone></div>
     <script>
-        // ...
+        itens = document.querySelectorAll('[wm-dropzone] .item')
+        itens.forEach((item, index) => {
+            // item agora pode ser draggable
+            item.draggable = true
+            // Insere um ID, caso não tenha
+            item.id = item.id || `draggable-item-${index}`
+            // No momento que arrastar o item será chamado esse evento
+            item.ondragstart = e => {
+                // Inicio da transferência se baseando no ID // Enviando o item
+                e.dataTransfer.setData('item-id', e.target.id)
+            }
+        })
+
+        const dropzones = document.querySelectorAll('[wm-dropzone]')
+        dropzones.forEach(dropzone => {
+            // Antes da função .ondrop é executado o ondragover, neste caso é necessário interceptar
+            dropzone.ondragover = e => e.preventDefault()
+            // Reescrevendo a função .ondrop
+            dropzone.ondrop = function(e) {
+                // Fim da transferência // Recebendo o item
+                const id = e.dataTransfer.getData('item-id')
+                const item = document.getElementById(id)
+                // A linha a seguir tem um comportamento interessante, o drop funciona em tudo.
+                // e.target.appendChild(item)
+                // O dropzone receberá o item como seu último filho
+                dropzone.appendChild(item)
+            }
+        })
     </script>
 </body>
 
